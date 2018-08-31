@@ -36,7 +36,6 @@ public class Box {
     }
 
     public void printTextInBox(String message) {
-
         for(int i = 0; i < message.length(); i += width) {
             print("*  ");
             if(i + width - 6 < message.length()) {
@@ -44,7 +43,7 @@ public class Box {
             }
             else {
                 print(message.substring(i, message.length() - 1));
-                for(int k = message.length(); k % width != 0; k++)
+                for(int k = message.length() - i; (k + 5) % width != 0; k++)
                     print(" ");
             }
             print("  *\n");
@@ -54,6 +53,4 @@ public class Box {
     public void print(Object obj) {
         System.out.print(obj.toString());
     }
-
-
 }
